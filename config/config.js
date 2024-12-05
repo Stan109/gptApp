@@ -30,5 +30,12 @@ module.exports = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT || 5432,
     dialect: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true, // Enforce SSL
+        rejectUnauthorized: false, // Allow self-signed certificates
+      },
+    },
+    logging: false, // Disable logging for production
   },
 };
